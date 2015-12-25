@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Registration</title>
+	</head>
+	<body>
+		<header>
+			<h1>TECHNOLOGICAL PARK FOR ELECTRONICS & COMMUNICATION ENGINEERS<small>:Registration</small></h1>
+			
+		</header>
+		<section>
+			<form>
+				<p><label for="fname">First Name:</label><input id="fname" type="text" name="firstname"/></p>
+				<p><label for="lname">Last Name:</label><input id="lname" type="text" name="lastname"/></p>
+				<p>Gender: <label for="genMale">Male</label><input id="genMale" type="radio" name="gender"/>
+				&nbsp <label for="genFeMale">FeMale</label><input id="genFeMale" type="radio" name="gender"/></p>
+				<p><label for="dob">Date of Birth:</label><input id="dob" type="date" name="dateofbirth"/></p>
+				<p><label for="age">Age:</label><input id="age" type="number" name="age"/></p>
+				<p><input type="submit" value="Done" name="submit"/></p>
+			</form>
+		</section>
+		<p><a href="index.html">Home</a></p>
+		<script type="text/javascript">
+		window.onload = function() {
+				document.getElementById("dob").onchange = function(e) {
+					var today = new Date();
+					var birthDate = new Date(document.getElementById("dob").value);
+					var age = today.getFullYear() - birthDate.getFullYear();
+					var m = today.getMonth() - birthDate.getMonth();
+					if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+						age--;
+					}
+					document.getElementById('age').value = age;
+				}
+			}
+		</script>
+	</body>
+</html>
